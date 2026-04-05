@@ -97,8 +97,8 @@ def predict(image: Image.Image) -> dict:
         probs  = torch.softmax(logits, dim=1)[0]          # (2,)
 
     # Class mapping: 0 = FAKE (AI), 1 = REAL
-    ai_prob   = float(probs[0])
-    real_prob = float(probs[1])
+    ai_prob   = float(probs[1])
+    real_prob = float(probs[0])
     label     = "Real" if real_prob > ai_prob else "AI"
 
     return {
